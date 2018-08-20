@@ -9,17 +9,19 @@
 	<body>
 		<h1>PIXEL ART MAKER</h1>
 			<form class="gridPicker" action="index.html" method="post">
+				<h2>Choose Grid Size</h2>
 				<label for="height">Grid Height:</label>
 						<input type="number" id="height" class="grid" min="1">
 				<label for="width">Grid Width:</label>
 						<input type="number" id="width" class="grid" min="1">
-						<input type="submit" value="Submit">
+						<input type="submit" value="Submit" id="submit-grid">
 			</form>
-		<p>Pick A Color</p>
-		<input type="color" name="colorPicker" value="">
-		<p>Design Canvas</p>
-		<div class="theGrid">
+		<h2>Pick A Color</h2>
+		<input type="color" name="color-picker" value="#112233">
+		<h2>Design Canvas</h2>
+		<table id="the-grid">
 
-		</div>
+		</table>
+		<script src="js/designs.js"></script>
 	</body>
 </html>

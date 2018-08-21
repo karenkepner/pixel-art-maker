@@ -1,30 +1,22 @@
 //Select color.
-let color = document.querySelector('color-picker');
+let color = document.querySelector("#color-picker");
 
+let theGrid = document.querySelector("#the-grid");
 
 const submitGrid = document.querySelector('#submit-grid');
-//Set grid size.
-submitGrid.addEventListener('click', function(){
-	let height = document.querySelector("#height").value;
-	let width = document.querySelector("#width").value;
-	console.log('height:' + height);
-	console.log('width:' + width);
-	//alert('height:' + height + 'width:' + width);
-	submitGrid.preventDefault();
-	makeGrid();
-})
+let height = 5 //document.querySelector("#height");
+let width =  10 //document.querySelector("#width");
 
-//document.querySelector("")
-//on Submit of both height and width, assign those values to height and width.
+submitGrid.addEventListener('click', function makeGrid() {
 
-
-function makeGrid() {
-	console.log("Make a grid.");
-	const theGrid = document.querySelector('#the-grid');
-	theGrid.createElement('tr');
-	theGrid.createElement('td');
-
+	let height = document.querySelector("#height");
+	let width =  document.querySelector("#width");
+	for (let i = 0; i < width; i++) {
+	 	theGrid.insertAdjacentHTML('afterbegin', '<tr>table row</tr>');
+	}
+	for (let j = 0; j < height; j++) {
+	 	theGrid.insertAdjacentHTML('afterbegin', '<td>table detail</td>');
+	}
+});
 	//build the grid with a for loop that creates
 	// the elements of a table that has css to show gridlines.
-
-}

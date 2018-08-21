@@ -21,5 +21,10 @@ submitGrid.addEventListener('click', function(){
 function makeGrid() {
 	console.log("Make a grid.");
 	const theGrid = document.querySelector('#the-grid');
-	//theGrid.createElement('table');
+	theGrid.createElement('tr');
+	theGrid.createElement('td');
+
+	//build the grid with a for loop that creates
+	// the elements of a table that has css to show gridlines.
+
 }

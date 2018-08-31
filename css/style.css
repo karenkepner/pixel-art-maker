@@ -30,9 +30,10 @@ table {
 }
 
 tr {
-    height: 20px;
+    height: 40px;
+		width: 40px;
 }
 
 td {
-    width: 20px;
+    width: 40px;
 }

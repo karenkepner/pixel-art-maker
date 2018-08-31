@@ -1,22 +1,41 @@
 //Select color.
-let color = document.getElementById("color-picker");
-
+let colorPicked = document.getElementById("color-picker");
 let theGrid = document.getElementById("the-grid");
 
 const submitGrid = document.querySelector('#submit-grid');
-let height = 5 //document.querySelector("#height");
-let width =  10 //document.querySelector("#width");
+let height = 5;
+let width = 10;
 
-submitGrid.addEventListener('click', function makeGrid() {
-	height = document.getElementById("height");
-	width =  document.getElementById("width");
-	for (let i = 0; i < width; i++) {
-	 	theGrid.insertAdjacentHTML('afterbegin', '<tr>table row</tr>');
-	}
-	for (let j = 0; j < height; j++) {
-	 	theGrid.insertAdjacentHTML('afterbegin', '<td>table detail</td>');
-	}
-	theGrid.preventDefault();
+submitGrid.addEventListener('click', function setGridSize(e) {
+	height = document.getElementById("height").value;
+	width =  document.getElementById("width").value;
+	e.preventDefault();
+	buildGrid(height, width);
 });
+
 	//build the grid with a for loop that creates
 	// the elements of a table that has css to show gridlines.
+
+function buildGrid(height, width){
+	let grid = "";
+	for (let i = 0; i < height; i++) {
+		grid += '<tr id="row' + i + '">';
+		for (let j = 0; j < width; j++) {
+			grid += '<td class="grid-box column' + j + '"></td>';
+		}
+		grid += '</tr>';
+	}
+	theGrid.innerHTML = grid;
+	addEventListenerToGridbox();
+}
+
+//add an event listener for the grid boxes so they can be colored in.
+function addEventListenerToGridbox(e){
+	let boxes = document.getElementsByClassName('grid-box');
+	for (let i = 0; i < boxes.length; i++){
+		boxes[i].addEventListener('click', function(element){
+			let box = element.target;
+			box.style.backgroundColor = colorPicked.value;
+	})
+	}
+}
